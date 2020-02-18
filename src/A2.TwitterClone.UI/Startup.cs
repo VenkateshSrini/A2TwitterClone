@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using A2.TwitterClone.UI.Configuration;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using Raven.Client.Documents;
+using Raven.DependencyInjection;
 namespace A2.TwitterClone.UI
 {
     public class Startup
@@ -22,6 +24,18 @@ namespace A2.TwitterClone.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var ravenConfig = new RavenConfig();
+            Configuration.GetSection("RavenDbConfig").Bind(ravenConfig);
+            
+           services.AddRavenDbDocStore( (options)=> {
+               options.Settings = new RavenSettings
+               {
+                   Urls = ravenConfig.Url,
+                   DatabaseName = ravenConfig.DBName
+               };
+           })
+           .AddRavenDbAsyncSession();
+
             services.AddRazorPages();
         }
 
