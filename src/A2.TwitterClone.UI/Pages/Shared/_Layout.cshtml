@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - TwitterClone</title>
+    <link rel="stylesheet" href="~/bundle.css" />
+    
+</head>
+<body>
+    <header>
+        <div class="content-wrapper">
+            <div class="float-left">
+                <p class="site-title">
+                    <a href="/">Chirpy</a>
+                </p>
+            </div>
+        </div>
+    </header>
+    <div id="body">
+        <section class="featured">
+            <div class="content-wrapper">
+            </div>
+            <div class="float-left">
+            </div>
+        </section>
+        <section class="content-wrapper main-content clear-fix">
+            <ul id="menu">
+                <li>@Html.ActionLink("All Chirps", "Index", "Home")</li>
+                <li>@Html.ActionLink("Trending Tags", "Tags", "Home")</li>
+                <li>@Html.ActionLink("Search", "Search", "Home")</li>
+
+            </ul>
+            @RenderBody()
+        </section>
+    </div>
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - A2.TwitterClone.UI - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/bundle.js"></script>
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>*@
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

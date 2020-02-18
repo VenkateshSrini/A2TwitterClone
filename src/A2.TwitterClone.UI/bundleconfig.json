@@ -1,0 +1,34 @@
+[
+  {
+    "outputFileName": "wwwroot/bundle.css",
+    "inputFiles": [
+      "wwwroot/Content/themes/base/jquery.ui.accordion.css",
+      "wwwroot/Content/themes/base/jquery.ui.all.css",
+      "wwwroot/Content/themes/base/jquery.ui.autocomplete.css",
+      "wwwroot/Content/themes/base/jquery.ui.base.css",
+      "wwwroot/Content/themes/base/jquery.ui.button.css",
+      "wwwroot/Content/themes/base/jquery.ui.core.css",
+      "wwwroot/Content/themes/base/jquery.ui.datepicker.css",
+      "wwwroot/Content/themes/base/jquery.ui.dialog.css",
+      "wwwroot/Content/themes/base/jquery.ui.progressbar.css",
+      "wwwroot/Content/themes/base/jquery.ui.resizable.css",
+      "wwwroot/Content/themes/base/jquery.ui.selectable.css",
+      "wwwroot/Content/themes/base/jquery.ui.slider.css",
+      "wwwroot/Content/themes/base/jquery.ui.tabs.css",
+      "wwwroot/Content/themes/base/jquery.ui.theme.css",
+      "wwwroot/Content/Site.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/bundle.js",
+    "inputFiles": [
+      "wwwroot/Scripts/_references.js",
+      "wwwroot/Scripts/jquery.unobtrusive-ajax.js",
+      "wwwroot/Scripts/jquery.validate.js",
+      "wwwroot/Scripts/jquery-1.6.2.js",
+      "wwwroot/Scripts/jquery-ui-1.8.11.js",
+      "wwwroot/Scripts/knockout-2.0.0.js",
+      "wwwroot/Scripts/modernizr-2.0.6-development-only.js"
+    ]
+  }
+]

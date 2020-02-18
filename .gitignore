@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/src/A2.TwitterClone.UI/obj
+/src/A2.TwitterClone.UI/bin/Debug/netcoreapp3.1
