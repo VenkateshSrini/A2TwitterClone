@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using A2.TwitterClone.UI.Configuration;
+using A2.TwitterClone.UI.model;
+using A2.TwitterClone.UI.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Raven.Client.Documents;
-using Raven.DependencyInjection;
+using Maqduni.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity;
+
 namespace A2.TwitterClone.UI
 {
     public class Startup
@@ -26,15 +29,13 @@ namespace A2.TwitterClone.UI
         {
             var ravenConfig = new RavenConfig();
             Configuration.GetSection("RavenDbConfig").Bind(ravenConfig);
-            
-           services.AddRavenDbDocStore( (options)=> {
-               options.Settings = new RavenSettings
-               {
-                   Urls = ravenConfig.Url,
-                   DatabaseName = ravenConfig.DBName
-               };
-           })
-           .AddRavenDbAsyncSession();
+
+            services.AddRavenDbAsyncSession($"{ravenConfig.DBName};{ravenConfig.Url}");
+            services.AddIdentity<ApplicationUser, ApplicationRole>()
+                .AddRavenDbStores()
+                .AddDefaultTokenProviders();
+
+                    
 
             services.AddRazorPages();
         }

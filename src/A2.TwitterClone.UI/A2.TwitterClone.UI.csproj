@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Maqduni.AspNetCore.Identity.RavenDb" Version="4.2.0" />
     <PackageReference Include="RavenDB.Client" Version="4.2.8" />
-    <PackageReference Include="RavenDB.DependencyInjection" Version="3.1.0" />
   </ItemGroup>
 
 

@@ -10,7 +10,7 @@ namespace A2.TwitterClone.UI.Configuration
     {
    
         public string Password { get; set; }
-        public string[] Url { get; set; }
+        public string Url { get; set; }
         public string DBName { get; set; }
     }
 
