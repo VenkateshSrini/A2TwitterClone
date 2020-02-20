@@ -30,14 +30,18 @@ namespace A2.TwitterClone.UI
             var ravenConfig = new RavenConfig();
             Configuration.GetSection("RavenDbConfig").Bind(ravenConfig);
 
-            services.AddRavenDbAsyncSession($"{ravenConfig.DBName};{ravenConfig.Url}");
+            services.AddRavenDbAsyncSession(connectionString:$"Database={ravenConfig.DBName};Urls={ravenConfig.Url}");
             services.AddIdentity<ApplicationUser, ApplicationRole>()
                 .AddRavenDbStores()
                 .AddDefaultTokenProviders();
 
-                    
 
-            services.AddRazorPages();
+
+            services.AddRazorPages()
+                .AddViewOptions(options => options.HtmlHelperOptions.ClientValidationEnabled = true)
+                .AddRazorPagesOptions(options => {
+                    options.Conventions.AddPageRoute("/RegisterAndLogin", "");
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

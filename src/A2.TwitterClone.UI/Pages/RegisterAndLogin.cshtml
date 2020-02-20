@@ -1,0 +1,18 @@
+﻿@page
+@model A2.TwitterClone.UI.RegisterAndLoginModel
+@{
+    ViewData["Title"] = "RegisterAndLogin";
+}
+
+
+<br />
+<form id="Register" asp-action="post">
+    <div style="width:70%">
+        <label asp-for="User">User Name</label>
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+</form>
+@section scripts{
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

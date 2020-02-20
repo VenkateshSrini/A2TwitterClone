@@ -25,6 +25,7 @@
       "wwwroot/Scripts/_references.js",
       "wwwroot/Scripts/jquery.unobtrusive-ajax.js",
       "wwwroot/Scripts/jquery.validate.js",
+      "wwwroot/Scripts/jquery.validate.unobtrusive.js",
       "wwwroot/Scripts/jquery-1.6.2.js",
       "wwwroot/Scripts/jquery-ui-1.8.11.js",
       "wwwroot/Scripts/knockout-2.0.0.js",

@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <PackageReference Include="Maqduni.AspNetCore.Identity.RavenDb" Version="4.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
     <PackageReference Include="RavenDB.Client" Version="4.2.8" />
   </ItemGroup>
 

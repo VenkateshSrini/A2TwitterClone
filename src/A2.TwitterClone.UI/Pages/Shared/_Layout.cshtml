@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -12,7 +13,7 @@
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
-                    <a href="/">Chirpy</a>
+                    <a href="/">Squeek</a>
                 </p>
             </div>
         </div>
@@ -26,10 +27,18 @@
         </section>
         <section class="content-wrapper main-content clear-fix">
             <ul id="menu">
-                <li>@Html.ActionLink("All Chirps", "Index", "Home")</li>
-                <li>@Html.ActionLink("Trending Tags", "Tags", "Home")</li>
-                <li>@Html.ActionLink("Search", "Search", "Home")</li>
 
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li><a asp-page="/Tweet">Tweet</a></li>
+                    <li><a asp-page="/Tweet">Edit Profile Info</a></li>
+                    <li><a asp-page="/OtherUsers">Friends</a></li>
+                }
+                else
+                {
+                    <li><a asp-page="/RegisterAndLogin">Register/Login</a></li>
+                }
             </ul>
             @RenderBody()
         </section>
