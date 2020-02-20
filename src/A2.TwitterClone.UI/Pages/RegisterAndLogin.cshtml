@@ -11,7 +11,9 @@
         <label asp-for="User">User Name</label>
         <input asp-for="UserName" />
         <span asp-validation-for="UserName"></span>
+        <input type="submit" value="Create User"/>
     </div>
+
 </form>
 @section scripts{
     @await Html.PartialAsync("_ValidationScriptsPartial")
