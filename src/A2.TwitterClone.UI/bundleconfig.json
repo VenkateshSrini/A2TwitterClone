@@ -1,6 +1,8 @@
 [
   {
     "outputFileName": "wwwroot/bundle.css",
+    "includeInProject": true,
+    "minify": {"enabled": true,"adjustRelativePaths": true},
     "inputFiles": [
       "wwwroot/Content/themes/base/jquery.ui.accordion.css",
       "wwwroot/Content/themes/base/jquery.ui.all.css",
@@ -21,6 +23,8 @@
   },
   {
     "outputFileName": "wwwroot/bundle.js",
+    "includeInProject": true,
+    "minify": {"enabled": true},
     "inputFiles": [
       "wwwroot/Scripts/_references.js",
       "wwwroot/Scripts/jquery.unobtrusive-ajax.js",

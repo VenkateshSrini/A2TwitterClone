@@ -48,11 +48,11 @@
             &copy; 2020 - A2.TwitterClone.UI - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
     </footer>
-
+    @RenderSection("Scripts", required: false)
     <script src="~/bundle.js"></script>
     @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
         <script src="~/js/site.js" asp-append-version="true"></script>*@
 
-    @RenderSection("Scripts", required: false)
+
 </body>
 </html>
