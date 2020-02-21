@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Identity;
 using A2.TwitterClone.UI.Model;
 using A2.TwitterClone.UI.model;
 using Microsoft.Extensions.Logging;
+using System.Security.Principal;
 
 namespace A2.TwitterClone.UI
 {
@@ -23,13 +24,11 @@ namespace A2.TwitterClone.UI
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-
         public string Password { get; set; }
-
-        [DataType(DataType.Password)]
         [BindProperty]
         [Required]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [DataType(DataType.Password)]
+        
         public string ConfirmPassword { get; set; }
         [BindProperty]
         [Required]
@@ -58,33 +57,43 @@ namespace A2.TwitterClone.UI
         {
             if (ModelState.IsValid)
             {
-                var user = userManager.FindByEmailAsync(Email);
-                if (user == null)
+                if (Password.CompareTo(ConfirmPassword) == 0)
                 {
-                    var applicationUser = new ApplicationUser
+                    var user = await userManager.FindByEmailAsync(Email);
+                    if (user == null)
                     {
-                        Email=this.Email,
-                        MobileNumber = this.MobileNumber,
-                        UserName = this.UserName,
-                    };
-                    var result = await userManager.CreateAsync(applicationUser, this.Password);
-                    if (!result.Succeeded)
-                        ModelState.AddModelError("UserCreateionFailed", "Unable to create user contact admin");
-                    else
-                    {
-                        logger.LogInformation("User created a new account with password.");
-                        await signInManager.SignInAsync(applicationUser, isPersistent: false);
-                        logger.LogInformation("SignOn Complete");
-                        return RedirectToPagePermanent("/Tweet");
-                        
-                    }
+                        var applicationUser = new ApplicationUser
+                        {
+                            Email = this.Email,
+                            MobileNumber = this.MobileNumber,
+                            UserName = this.UserName,
+                        };
+                        var result = await userManager.CreateAsync(applicationUser, this.Password);
+                        if (!result.Succeeded)
+                            ModelState.AddModelError("UserCreateionFailed", "Unable to create user contact admin");
+                        else
+                        {
+                            logger.LogInformation("User created a new account with password.");
+                            var signInResult = signInManager.PasswordSignInAsync(applicationUser,
+                                Password, false, false);
+                         
+                            logger.LogInformation("SignOn Complete");
+                            return Redirect("/SecuredPage/Tweet");
 
+                        }
+
+                    }
+                    else
+                        ModelState.AddModelError("UserAlreadyExists", "User is already registered");
                 }
                 else
-                    ModelState.AddModelError("UserAlreadyExists", "User is already registered");
+                {
+                    ModelState.AddModelError("InvalidPasssword", "Characters provided in Password and confirm password does not match");
+                }
                 
             }
             return Page();
+            //return LocalRedirect("/Register");
         }
     }
 }

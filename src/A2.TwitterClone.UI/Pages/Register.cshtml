@@ -7,7 +7,8 @@
 
 <br />
 <form id="Register" asp-action="post">
-    <div style="width:70%">
+    <div asp-validation-summary="All" ></div>
+    <div>
         <label asp-for="User">User Name</label>
         <input asp-for="UserName" />
         <span asp-validation-for="UserName"></span>
@@ -16,7 +17,7 @@
         <input asp-for="Email" />
         <span asp-validation-for="Email"></span>
         <br />
-        <label asp-for="MobileNumber">Email</label>
+        <label asp-for="MobileNumber">Mobile Nummber</label>
         <input asp-for="MobileNumber" />
         <span asp-validation-for="MobileNumber"></span>
         <br />
@@ -32,6 +33,3 @@
     </div>
 
 </form>
-@section scripts{
-    @await Html.PartialAsync("_ValidationScriptsPartial")
-}

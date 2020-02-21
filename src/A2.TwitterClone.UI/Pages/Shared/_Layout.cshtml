@@ -31,9 +31,10 @@
 
                 @if (User.Identity.IsAuthenticated)
                 {
-                    <li><a asp-page="/Tweet">Tweet</a></li>
-                    <li><a asp-page="/Tweet">Edit Profile Info</a></li>
-                    <li><a asp-page="/OtherUsers">Friends</a></li>
+                    <li><a asp-page="/SecuredPage/Tweet">Tweet</a></li>
+                    <li><a asp-page="/SecuredPage/Tweet">Edit Profile Info</a></li>
+                    <li><a asp-page="/SecuredPage/Tweet">Friends</a></li>
+                    <li><a asp-page="/SecuredPage/Tweet">Logout</a></li>
                 }
                 else
                 {
@@ -50,9 +51,7 @@
     </footer>
     @RenderSection("Scripts", required: false)
     <script src="~/bundle.js"></script>
-    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>*@
-
+   
 
 </body>
 </html>
