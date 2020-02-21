@@ -40,7 +40,7 @@ namespace A2.TwitterClone.UI
             services.AddRazorPages()
                 .AddViewOptions(options => options.HtmlHelperOptions.ClientValidationEnabled = true)
                 .AddRazorPagesOptions(options => {
-                    options.Conventions.AddPageRoute("/RegisterAndLogin", "");
+                    options.Conventions.AddPageRoute("/Register", "");
                 });
         }
 
