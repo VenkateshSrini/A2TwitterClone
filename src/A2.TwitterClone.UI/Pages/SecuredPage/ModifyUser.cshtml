@@ -1,0 +1,24 @@
+﻿@page
+@model A2.TwitterClone.UI.ModifyUserModel
+@{
+    ViewData["Title"] = "ModifyUser";
+}
+
+<h1>ModifyUser</h1>
+<form id="ModifyUser" asp-action="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="User">User Name</label>
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+        <br />
+        <label asp-for="Email">Email</label>
+        <input asp-for="Email"  readonly="readonly"/>
+        <br />
+        <label asp-for="MobileNumber">Mobile</label>
+        <input asp-for="MobileNumber" readonly="readonly"/>
+        <br />
+        <input type="submit" value="Modify User" />
+    </div>
+</form>
+

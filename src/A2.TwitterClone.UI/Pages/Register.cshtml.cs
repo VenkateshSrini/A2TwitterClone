@@ -35,7 +35,7 @@ namespace A2.TwitterClone.UI
         [StringLength(8, ErrorMessage = "The userName should be minimum of 6 chars and max of 8", MinimumLength = 6)]
          public string UserName { get; set; }
         [BindProperty]
-        [RegularExpression(@"(^[0-9]{10}$)|(^\+[0-9]{2}\s+[0-9]{2}[0-9]{8}$)|(^[0-9]{3}-[0-9]{4}-[0-9]{4}$)",ErrorMessage ="Inavlid email")]
+        [RegularExpression(@"(^[0-9]{10}$)|(^\+[0-9]{2}\s+[0-9]{2}[0-9]{8}$)|(^[0-9]{3}-[0-9]{4}-[0-9]{4}$)",ErrorMessage ="Inavlid mobile number")]
         [Required]
         public string MobileNumber { get; set; }
         private UserManager<ApplicationUser> userManager;

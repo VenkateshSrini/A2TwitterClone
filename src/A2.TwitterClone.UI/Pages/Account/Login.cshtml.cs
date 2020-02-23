@@ -33,9 +33,16 @@ namespace A2.TwitterClone.UI
             signInManager = appSignInManager;
             logger = loginLogger;
         }
-        public void OnGet()
+        public IActionResult OnGet()
         {
-
+            if (User.Identity.IsAuthenticated)
+            {
+                return Redirect("/SecuredPage/Tweet");
+            }
+            else
+            {
+                return Page();
+            }
         }
         public async Task<IActionResult> OnPost()
         {
