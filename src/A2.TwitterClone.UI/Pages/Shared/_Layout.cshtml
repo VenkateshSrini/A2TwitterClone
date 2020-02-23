@@ -34,11 +34,13 @@
                     <li><a asp-page="/SecuredPage/Tweet">Tweet</a></li>
                     <li><a asp-page="/SecuredPage/Tweet">Edit Profile Info</a></li>
                     <li><a asp-page="/SecuredPage/Tweet">Friends</a></li>
-                    <li><a asp-page="/SecuredPage/Tweet">Logout</a></li>
+                    <li><a asp-page="/SecuredPage/Signout">Logout</a></li>
+                    <li><a asp-page="/SecuredPage/DeleteUser">Delete Me</a></li>
                 }
                 else
                 {
-                    <li><a asp-page="/RegisterAndLogin">Register/Login</a></li>
+                    <li><a asp-page="/RegisterAndLogin">Register</a></li>
+                    <li><a asp-page="/Account/Login">Login</a></li>
                 }
             </ul>
             @RenderBody()

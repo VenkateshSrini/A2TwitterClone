@@ -35,7 +35,7 @@ namespace A2.TwitterClone.UI
         [StringLength(8, ErrorMessage = "The userName should be minimum of 6 chars and max of 8", MinimumLength = 6)]
          public string UserName { get; set; }
         [BindProperty]
-        [RegularExpression(@"(^[0-9]{10}$)|(^\+[0-9]{2}\s+[0-9]{2}[0-9]{8}$)|(^[0-9]{3}-[0-9]{4}-[0-9]{4}$)")]
+        [RegularExpression(@"(^[0-9]{10}$)|(^\+[0-9]{2}\s+[0-9]{2}[0-9]{8}$)|(^[0-9]{3}-[0-9]{4}-[0-9]{4}$)",ErrorMessage ="Inavlid email")]
         [Required]
         public string MobileNumber { get; set; }
         private UserManager<ApplicationUser> userManager;
@@ -69,6 +69,7 @@ namespace A2.TwitterClone.UI
                             UserName = this.UserName,
                         };
                         var result = await userManager.CreateAsync(applicationUser, this.Password);
+                        
                         if (!result.Succeeded)
                             ModelState.AddModelError("UserCreateionFailed", "Unable to create user contact admin");
                         else
@@ -76,7 +77,7 @@ namespace A2.TwitterClone.UI
                             logger.LogInformation("User created a new account with password.");
                             var signInResult = signInManager.PasswordSignInAsync(applicationUser,
                                 Password, false, false);
-                         
+                            
                             logger.LogInformation("SignOn Complete");
                             return Redirect("/SecuredPage/Tweet");
 

@@ -5,4 +5,18 @@
 }
 
 <h1>Login</h1>
+<form id="Register" asp-action="post">
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="User">UserName/Email</label>
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName"></span>
+        <br />
+        <label asp-for="Password">Password</label>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password"></span>
+        <br />
+        <input type="submit" value="Login User" />
+        </div>
+</form>
 

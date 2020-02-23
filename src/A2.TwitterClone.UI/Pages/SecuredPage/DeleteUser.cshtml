@@ -1,0 +1,14 @@
+﻿@page
+@model A2.TwitterClone.UI.DeleteUserModel
+@{
+    ViewData["Title"] = "DeleteUser";
+}
+
+<h1>DeleteUser</h1>
+<div>
+    <h2 style="font:300;font-weight:bold">You are about to delete your user profile. This will delete all your tweets also</h2>
+    <form asp-action="post">
+        <input type="submit" value="Please go ahead and delete"/>
+    </form>
+</div>
+
