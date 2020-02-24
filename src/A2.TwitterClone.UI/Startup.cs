@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Maqduni.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using A2.TwitterClone.UI.Repository;
 
 namespace A2.TwitterClone.UI
 {
@@ -54,6 +55,7 @@ namespace A2.TwitterClone.UI
               .AddDefaultTokenProviders();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
+            services.AddSingleton<ITweetRepo, TweetRepo>();
              
          
             services.AddRazorPages()

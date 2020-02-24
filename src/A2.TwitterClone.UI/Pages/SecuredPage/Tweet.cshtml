@@ -5,4 +5,19 @@
 }
 
 <h1>Tweet</h1>
+<table>
+    @foreach (var tweet in Model.TweetsByUser)
+    {
+        <tr>
+            <td>
+                <textarea readonly="readonly">@tweet.Squeeks</textarea>
+            </td>
+            <td>
+                <a asp-page="./EditTweet" asp-route-id="@tweet.Id"></a>
+            </td>
+        </tr>
+    }
+    <tr>
 
+    </tr>
+</table>
