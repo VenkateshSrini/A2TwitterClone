@@ -59,7 +59,9 @@ namespace A2.TwitterClone.UI
             {
                 if (Password.CompareTo(ConfirmPassword) == 0)
                 {
-                    var user = await userManager.FindByEmailAsync(Email);
+                    var user = await userManager.FindByEmailAsync(Email) ??
+                        await userManager.FindByNameAsync(UserName);
+
                     if (user == null)
                     {
                         var applicationUser = new ApplicationUser

@@ -6,6 +6,9 @@ using A2.TwitterClone.UI.model;
 using Microsoft.Extensions.Logging;
 using Raven.Client.Extensions;
 using Raven.Client.Documents.Session;
+using Raven.Client.Documents.Operations;
+using System.Linq.Expressions;
+using Raven.Client.Documents.Queries;
 
 namespace A2.TwitterClone.UI.Repository
 {
@@ -13,6 +16,7 @@ namespace A2.TwitterClone.UI.Repository
     {
         private IAsyncDocumentSession asyncDocumentSession;
         private ILogger<TweetRepo> logger;
+        
         public TweetRepo(IAsyncDocumentSession asyncDocumentSession, 
             ILogger<TweetRepo> logger)
         {
@@ -71,6 +75,23 @@ namespace A2.TwitterClone.UI.Repository
         public async Task<Tweets> GetTweetById(string tweetId)
         {
             return await asyncDocumentSession.LoadAsync<Tweets>(tweetId);
+        }
+        public async Task DeleteAllTweetsForUser(string userId)
+        {
+            //await asyncDocumentSession.Advanced.DocumentStore.Operations
+            //                    .SendAsync(
+            //    new DeleteByQueryOperation(new IndexQuery
+            //    {
+            //        Query = $"from Tweets where Name = '{userId}'"
+            //    }));
+            var tweetList = await GetAllTweetsForUser(userId);
+           foreach(var tweet in tweetList)
+            {
+                var tweetObj = await DeleteTweet(tweet.Id);
+
+            }
+            
+
         }
     }
 }

@@ -16,6 +16,7 @@ namespace A2.TwitterClone.UI.Repository
         Task<Tweets>GetTweetById(string tweetId);
         Task<Tweets> EditTweets(Tweets modfifiedTweet);
         Task<Tweets> DeleteTweet(string tweetId);
+        Task DeleteAllTweetsForUser(string userId);
         
 
 
