@@ -5,4 +5,14 @@
 }
 
 <h1>AddTweet</h1>
+<form method="post" id="AddTweetFrm">
+    <div asp-validation-summary="All"></div>
+    <div>
+    
+        <textarea asp-for="Tweets"> </textarea>
+        <span asp-validation-for="Tweets"></span>
+    </div>
+    <input type="submit" value="Add Tweets" /> &nbsp; &nbsp;&nbsp;
+    <a style="" value="Cancel" asp-page="./Tweet" >Cencel</a>
+</form>
 

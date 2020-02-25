@@ -55,8 +55,8 @@ namespace A2.TwitterClone.UI
               .AddDefaultTokenProviders();
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
-            services.AddSingleton<ITweetRepo, TweetRepo>();
-             
+            services.AddScoped<ITweetRepo, TweetRepo>();
+            services.AddSession();
          
             services.AddRazorPages()
                 .AddViewOptions(options => options.HtmlHelperOptions.ClientValidationEnabled = true)
@@ -84,7 +84,7 @@ namespace A2.TwitterClone.UI
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();

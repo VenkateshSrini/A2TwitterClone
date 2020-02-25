@@ -4,7 +4,9 @@
     ViewData["Title"] = "Tweet";
 }
 
-<h1>Tweet</h1>
+<h1>Tweet</h1><br />
+
+<a asp-page="./AddTweet">Add Tweet</a>
 <table>
     @foreach (var tweet in Model.TweetsByUser)
     {
@@ -13,7 +15,7 @@
                 <textarea readonly="readonly">@tweet.Squeeks</textarea>
             </td>
             <td>
-                <a asp-page="./EditTweet" asp-route-id="@tweet.Id"></a>
+                <a asp-page="./EditTweet" asp-route-tweetId="@tweet.Id">Edit</a>
             </td>
         </tr>
     }

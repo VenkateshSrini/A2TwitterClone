@@ -12,7 +12,7 @@ namespace A2.TwitterClone.UI.Repository
         /*
          * User.Claims.FirstOrDefault(claim=>claim.Type=="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier")
          */
-        List<Tweets> GetAllTweetsForUser(string userID);
+        Task<List<Tweets>> GetAllTweetsForUser(string userID);
         Task<Tweets>GetTweetById(string tweetId);
         Task<Tweets> EditTweets(Tweets modfifiedTweet);
         Task<Tweets> DeleteTweet(string tweetId);

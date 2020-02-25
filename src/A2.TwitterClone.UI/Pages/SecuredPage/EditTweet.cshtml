@@ -6,3 +6,13 @@
 
 <h1>EditTweet</h1>
 
+<form method="post" id="EditTweetFrm">
+    <div asp-validation-summary="All"></div>
+    <div>
+
+        <textarea asp-for="Tweets"> </textarea>
+        <span asp-validation-for="Tweets"></span>
+    </div>
+    <input type="submit" value="Edit Tweets" /> &nbsp; &nbsp;&nbsp;
+    <a style="" value="Cancel" asp-page="./Tweet" asp-route-id="@ViewData["TweetId"]">Cencel</a>
+</form>

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using A2.TwitterClone.UI.model;
 using Microsoft.Extensions.Logging;
-using Raven.Client;
+using Raven.Client.Extensions;
 using Raven.Client.Documents.Session;
 
 namespace A2.TwitterClone.UI.Repository
@@ -56,11 +56,16 @@ namespace A2.TwitterClone.UI.Repository
 
         }
 
-        public List<Tweets> GetAllTweetsForUser(string userID)
+        public async Task<List<Tweets>> GetAllTweetsForUser(string userID)
         {
-            return asyncDocumentSession.Query<Tweets>()
-                .Where(tweet => tweet.UserID.CompareTo(userID) == 0)
-                .ToList();
+            return await asyncDocumentSession.Advanced.AsyncDocumentQuery<Tweets>()
+                                                       .WhereEquals(tweet => tweet.UserID, userID)
+                                                       .ToListAsync();
+                                                    
+
+
+
+
         }
 
         public async Task<Tweets> GetTweetById(string tweetId)

@@ -25,7 +25,8 @@ namespace A2.TwitterClone.UI
         {
             var userIdClaim = User.Claims.FirstOrDefault(claim =>
             claim.Type.CompareTo(nameIdentifer)== 0);
-            TweetsByUser = tweetRepo.GetAllTweetsForUser(userIdClaim.Value);
+            TweetsByUser = tweetRepo.GetAllTweetsForUser(userIdClaim.Value).GetAwaiter().GetResult();
+           
         }
     }
 }
