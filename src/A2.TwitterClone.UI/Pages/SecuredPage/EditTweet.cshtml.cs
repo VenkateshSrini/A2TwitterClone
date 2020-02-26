@@ -20,9 +20,9 @@ namespace A2.TwitterClone.UI
        
 
         private readonly ITweetRepo tweetRepo;
-        private ILogger<AddTweetModel> logger;
+        private ILogger<EditTweetModel> logger;
         public EditTweetModel(ITweetRepo tweetRepo,
-            ILogger<AddTweetModel> logger)
+            ILogger<EditTweetModel> logger)
         {
             this.tweetRepo = tweetRepo;
             this.logger = logger;

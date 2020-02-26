@@ -10,14 +10,17 @@
 <table>
     @foreach (var tweet in Model.TweetsByUser)
     {
-        <tr>
-            <td>
-                <textarea readonly="readonly">@tweet.Squeeks</textarea>
-            </td>
-            <td>
-                <a asp-page="./EditTweet" asp-route-tweetId="@tweet.Id">Edit</a>
-            </td>
-        </tr>
+    <tr>
+        <td>
+            <textarea readonly="readonly">@tweet.Squeeks</textarea>
+        </td>
+        <td>
+            <a asp-page="./EditTweet" asp-route-tweetId="@tweet.Id">Edit</a>
+        </td>
+        <td>
+            <a asp-page="./DeleteTweet" asp-route-tweetId="@tweet.Id">Delete</a>
+        </td>
+    </tr>
     }
     <tr>
 
