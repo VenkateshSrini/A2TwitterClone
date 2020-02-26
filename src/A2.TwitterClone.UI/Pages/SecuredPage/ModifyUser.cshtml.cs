@@ -39,6 +39,7 @@ namespace A2.TwitterClone.UI
                 ModelState.AddModelError("UserNotFound", "User does not exist");
             else
             {
+                
                 Email = user.Email;
                 MobileNumber = user.MobileNumber;
                 UserName = user.UserName;
@@ -52,15 +53,23 @@ namespace A2.TwitterClone.UI
                 ModelState.AddModelError("UserNotFound", "User does not exist");
             else
             {
-                user.UserName = UserName;
-                var result = await userManager.UpdateAsync(user);
-                if (result.Succeeded)
+                var checkUser = await userManager.FindByNameAsync(UserName);
+                if (checkUser == null)
                 {
-                    await signInManager.RefreshSignInAsync(user);
-                    return LocalRedirect("/SecuredPage/Tweet");
+                    user.UserName = UserName;
+                    var result = await userManager.UpdateAsync(user);
+                    if (result.Succeeded)
+                    {
+                        await signInManager.RefreshSignInAsync(user);
+                        return LocalRedirect("/SecuredPage/Tweet");
+                    }
+                    else
+                        ModelState.AddModelError("UserUpdateFailed", "Unable to update user");
                 }
                 else
-                    ModelState.AddModelError("UserUpdateFailed", "Unable to update user");
+                    ModelState.AddModelError("UserUpdateFailed", "User by that name already exists");
+
+
             }
             return Page();
         }

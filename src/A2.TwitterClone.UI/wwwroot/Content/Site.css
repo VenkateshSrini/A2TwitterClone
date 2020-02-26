@@ -26,6 +26,12 @@ a:active, a:hover {
 a:hover {
     background-color: #c7d1d6;
 }
+.link-button {
+    background-color: #7fb3c7;
+    color: white;
+    padding: 7px;
+    border-radius: 5px;
+}
 
 header, footer, hgroup,
 nav, section {
