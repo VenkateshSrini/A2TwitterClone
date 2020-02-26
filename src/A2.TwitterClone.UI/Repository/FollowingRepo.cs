@@ -1,4 +1,5 @@
 ﻿using A2.TwitterClone.UI.model;
+using A2.TwitterClone.UI.Model;
 using Microsoft.Extensions.Logging;
 using Raven.Client.Documents.Session;
 using System;
@@ -73,6 +74,11 @@ namespace A2.TwitterClone.UI.Repository
                                                .WhereEquals(following =>
                                                following.UserId, userId)
                                                .SingleOrDefaultAsync();
+        }
+        public async Task<List<ApplicationUser>> GetAllUsers()
+        {
+           return await asyncDocumentSession.Advanced.AsyncDocumentQuery<ApplicationUser>()
+                                               .ToListAsync();
         }
     }
 }
