@@ -5,47 +5,63 @@
 }
 
 
-<br />
-<form id="Register" asp-action="post">
-    <div asp-validation-summary="All" ></div>
-    <div>
-        <table>
-            <tr>
-                <td><label asp-for="User">User Name</label></td>
-                <td><input asp-for="UserName" /></td>
-            </tr>
-            <tr>
-                <span asp-validation-for="UserName"></span>
-            </tr>
-            <tr>
-                <td><label asp-for="Email">Email</label></td>
-                <td><input asp-for="Email" /></td>
-            </tr>
-            <tr>
-                <span asp-validation-for="Email"></span>
-            </tr>
-        </table>
-        
-        
-        
+    <div class="login-container">
+        <label class="content-header"> Regsiter</label><br />
         <br />
         
-        
-        
-        <br />
-        <label asp-for="MobileNumber">Mobile Nummber</label>
-        <input asp-for="MobileNumber" />
-        <span asp-validation-for="MobileNumber"></span>
-        <br />
-        <label asp-for="Password">Password</label>
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
-        <br />
-        <label asp-for="ConfirmPassword">Confirm Password</label>
-        <input asp-for="ConfirmPassword" />
-        <span asp-validation-for="ConfirmPassword"></span>
-        <br />
-        <input type="submit" value="Create User" />
-    </div>
+        <form id="Register" asp-action="post">
+            <div asp-validation-summary="All"></div>
+            <div>
+                <table>
+                    <tr>
+                        <td><label asp-for="User">User Name</label></td>
+                        <td><input asp-for="UserName" /></td>
+                        <td><span asp-validation-for="UserName"></span></td>
+                    </tr>
 
-</form>
+                    <tr>
+                        <td><label asp-for="Email">Email</label></td>
+                        <td><input asp-for="Email" /></td>
+                        <td><span asp-validation-for="Email"></span></td>
+                    </tr>
+                    <tr>
+                        <td> <label asp-for="MobileNumber">Mobile Nummber</label></td>
+                        <td><input asp-for="MobileNumber" /></td>
+                        <td><span asp-validation-for="MobileNumber"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="Password">Password</label></td>
+                        <td><input asp-for="Password" /></td>
+                        <td> <span asp-validation-for="Password"></span></td>
+                    </tr>
+                    <tr>
+                        <td><label asp-for="ConfirmPassword">Confirm Password</label></td>
+                        <td><input asp-for="ConfirmPassword" /></td>
+                        <td><span asp-validation-for="ConfirmPassword"></span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <input type="submit" value="Create User" />
+                        </td>
+                    </tr>
+                </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                <br />
+
+            </div>
+
+        </form>
+    </div>
