@@ -37,9 +37,14 @@ namespace A2.TwitterClone.UI
                 FollowingViewModels.Add(new FollowingViewModel
                 {
                     UserName = user.UserName,
+                    UserId = user.Id,
                     Action = following.Followings.Contains(user.Id) ? "UnFollow" : "Following"
                 }) ;
             }
+            return Page();
+        }
+        public async Task<IActionResult> OnPostManageFollow(string userId, string tAction)
+        {
             return Page();
         }
     }

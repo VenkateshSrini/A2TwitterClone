@@ -5,4 +5,20 @@
 }
 
 <h1>Following</h1>
-
+<form method="post">
+    <table>
+        @foreach (var item in Model.FollowingViewModels)
+        {
+            <tr>
+                <td>
+                    @item.UserName
+                </td>
+                <td>
+                    <input type="submit" asp-route-userId="@item.UserId" asp-route-tAction="@item.Action"
+                           asp-page-handler="ManageFollow" 
+                           value="@item.Action" />
+                </td>
+            </tr>
+        }
+    </table>
+</form>
