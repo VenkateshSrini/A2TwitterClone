@@ -9,13 +9,29 @@
 <form id="Register" asp-action="post">
     <div asp-validation-summary="All" ></div>
     <div>
-        <label asp-for="User">User Name</label>
-        <input asp-for="UserName" />
-        <span asp-validation-for="UserName"></span>
+        <table>
+            <tr>
+                <td><label asp-for="User">User Name</label></td>
+                <td><input asp-for="UserName" /></td>
+            </tr>
+            <tr>
+                <span asp-validation-for="UserName"></span>
+            </tr>
+            <tr>
+                <td><label asp-for="Email">Email</label></td>
+                <td><input asp-for="Email" /></td>
+            </tr>
+            <tr>
+                <span asp-validation-for="Email"></span>
+            </tr>
+        </table>
+        
+        
+        
         <br />
-        <label asp-for="Email">Email</label>
-        <input asp-for="Email" />
-        <span asp-validation-for="Email"></span>
+        
+        
+        
         <br />
         <label asp-for="MobileNumber">Mobile Nummber</label>
         <input asp-for="MobileNumber" />

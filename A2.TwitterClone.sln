@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{48D75475-D24
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{0C992A12-7071-429A-8149-4301320279C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "A2.TwitterClone.UI", "src\A2.TwitterClone.UI\A2.TwitterClone.UI.csproj", "{00508133-1D26-4A85-90EE-A7CCEA73427A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "A2.TwitterClone.UI", "src\A2.TwitterClone.UI\A2.TwitterClone.UI.csproj", "{00508133-1D26-4A85-90EE-A7CCEA73427A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

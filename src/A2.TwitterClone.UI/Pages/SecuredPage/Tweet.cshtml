@@ -4,18 +4,21 @@
     ViewData["Title"] = "Tweet";
 }
 
-<h1>Tweet</h1><br />
+<label class="content-header">Tweet</label><br />
 
-<div style="align-items:center"><a asp-page="./AddTweet">Add Tweet</a></div>
+<div style="align-items:center">
+    <a class="link-button" style="margin-left:300px;" asp-page="./AddTweet">Add Tweet</a></div>
+<br />
+<br />
 <table style="width:70%;">
     @foreach (var tweet in Model.TweetsByUser)
     {
     <tr width="90%">
-        <td style="border: 1px ridge; border-collapse: separate; border-color: cornflowerblue">
+        <td style="border: 1px ridge; border-collapse: separate; border-color: cornflowerblue;height:100px;">
             @tweet.Squeeks
         </td>
         <td width="1%">
-            <a class="link-button" asp-page="./EditTweet" asp-route-tweetId="@tweet.Id">Edit</a>
+            <a class="link-button"  asp-page="./EditTweet" asp-route-tweetId="@tweet.Id">Edit</a>
       
         </td>
         <td width="1%">

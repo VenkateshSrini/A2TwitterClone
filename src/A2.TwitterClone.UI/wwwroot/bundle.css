@@ -677,6 +677,20 @@ html {
     margin: 0;
     padding: 0;
 }
+.login-container {
+    height: 200px;
+    width: 300px;
+    background-color: #a0d2e5;
+    margin: 5px;
+    position: absolute;
+    padding: 10px;
+    border-radius: 10px;
+    left:500px;
+}
+.content-header{
+    font-size:x-large;
+    font-weight:bold;
+}
 
 body {
     background-color: #fff;

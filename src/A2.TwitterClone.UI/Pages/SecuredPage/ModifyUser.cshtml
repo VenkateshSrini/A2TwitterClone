@@ -4,20 +4,30 @@
     ViewData["Title"] = "ModifyUser";
 }
 
-<h1>ModifyUser</h1>
+
 <form id="ModifyUser" asp-action="post">
     <div asp-validation-summary="All"></div>
-    <div>
-        <label asp-for="User">User Name</label>
-        <input asp-for="UserName" />
-        <span asp-validation-for="UserName"></span>
+    <div class="login-container">
+        <label class="content-header"> ModifyUser</label><br />
         <br />
-        <label asp-for="Email">Email</label>
-        <input asp-for="Email"  readonly="readonly"/>
-        <br />
-        <label asp-for="MobileNumber">Mobile</label>
-        <input asp-for="MobileNumber" readonly="readonly"/>
-        <br />
+        <table>
+            <tr>
+                <td><label asp-for="User">User Name</label></td>
+                <td><input asp-for="UserName" /></td>
+            </tr>
+            <tr>
+                <span asp-validation-for="UserName"></span>
+            </tr>
+            <tr>
+                <td><label asp-for="Email">Email</label></td>
+                <td><input asp-for="Email" readonly="readonly" /></td>
+            </tr>
+            <tr>
+                <td><label asp-for="MobileNumber">Mobile</label></td>
+                <td> <input asp-for="MobileNumber" readonly="readonly" /></td>
+            </tr>
+        </table><br />
+
         <input class="link-button" type="submit" value="Modify User" />
     </div>
 </form>

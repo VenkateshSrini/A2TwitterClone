@@ -4,19 +4,30 @@
     ViewData["Title"] = "Login";
 }
 
-<h1>Login</h1>
+
 <form id="Register" asp-action="post">
-    <div asp-validation-summary="All"></div>
-    <div>
-        <label asp-for="User">UserName/Email</label>
-        <input asp-for="UserName" />
-        <span asp-validation-for="UserName"></span>
+    <div  asp-validation-summary="All"></div>
+    <div class="login-container">
+        <label class="content-header"> Login</label><br />
         <br />
-        <label asp-for="Password">Password</label>
-        <input asp-for="Password" />
-        <span asp-validation-for="Password"></span>
+        <table>
+            <tr>
+                <td><label asp-for="User">UserName/Email</label></td>
+                <td><input asp-for="UserName" /></td>
+            </tr>
+            <tr>
+                <span asp-validation-for="UserName"></span>
+            </tr>
+            <tr>
+                <td><label asp-for="Password">Password</label></td>
+                <td><input asp-for="Password" /></td>
+            </tr>
+            <tr>
+                <span asp-validation-for="Password"></span>
+            </tr>
+        </table>
         <br />
-        <input type="submit" value="Login User" />
-        </div>
+        <input class="link-button" type="submit" value="Login User" />
+    </div>
 </form>
 
