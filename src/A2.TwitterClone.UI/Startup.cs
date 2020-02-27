@@ -56,6 +56,7 @@ namespace A2.TwitterClone.UI
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme);
             services.AddScoped<ITweetRepo, TweetRepo>();
+            services.AddScoped<IFollowingRepo, FollowingRepo>();
             services.AddSession();
          
             services.AddRazorPages()

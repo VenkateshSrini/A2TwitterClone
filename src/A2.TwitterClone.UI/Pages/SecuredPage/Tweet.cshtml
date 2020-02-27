@@ -6,23 +6,24 @@
 
 <h1>Tweet</h1><br />
 
-<a asp-page="./AddTweet">Add Tweet</a>
-<table>
+<div style="align-items:center"><a asp-page="./AddTweet">Add Tweet</a></div>
+<table style="width:70%;">
     @foreach (var tweet in Model.TweetsByUser)
     {
-    <tr>
-        <td>
-            <textarea readonly="readonly">@tweet.Squeeks</textarea>
+    <tr width="90%">
+        <td style="border: 1px ridge; border-collapse: separate; border-color: cornflowerblue">
+            @tweet.Squeeks
         </td>
-        <td>
-            <a asp-page="./EditTweet" asp-route-tweetId="@tweet.Id">Edit</a>
+        <td width="1%">
+            <a class="link-button" asp-page="./EditTweet" asp-route-tweetId="@tweet.Id">Edit</a>
+      
         </td>
-        <td>
-            <a asp-page="./DeleteTweet" asp-route-tweetId="@tweet.Id">Delete</a>
+        <td width="1%">
+            <a class="link-button" asp-page="./DeleteTweet" asp-route-tweetId="@tweet.Id">Delete</a>
+            <br />
         </td>
     </tr>
+    <tr/>
     }
-    <tr>
-
-    </tr>
+   
 </table>

@@ -41,7 +41,7 @@ namespace A2.TwitterClone.UI
                 ModelState.AddModelError("UnableToTweet", "Unable to add tweet");
                 return Page();
             }
-            return LocalRedirect("/SecuredPage/Tweet");
+            return Redirect("/SecuredPage/Tweet");
 
         }
     }

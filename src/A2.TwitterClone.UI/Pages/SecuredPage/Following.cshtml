@@ -6,7 +6,7 @@
 
 <h1>Following</h1>
 <form method="post">
-    <table>
+    <table width="100%">
         @foreach (var item in Model.FollowingViewModels)
         {
             <tr>
@@ -14,7 +14,7 @@
                     @item.UserName
                 </td>
                 <td>
-                    <input type="submit" asp-route-userId="@item.UserId" asp-route-tAction="@item.Action"
+                    <input class="link-button" type="submit" asp-route-userId="@item.UserId" asp-route-tAction="@item.Action"
                            asp-page-handler="ManageFollow" 
                            value="@item.Action" />
                 </td>

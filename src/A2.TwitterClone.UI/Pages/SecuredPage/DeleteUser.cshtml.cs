@@ -17,14 +17,16 @@ namespace A2.TwitterClone.UI
         private UserManager<ApplicationUser> userManager;
         private readonly ILogger<DeleteUserModel> logger;
         private ITweetRepo tweetRepo;
+        private IFollowingRepo followingRepo;
         public DeleteUserModel(SignInManager<ApplicationUser> appSignInManager,
            UserManager<ApplicationUser> appUserManager, ILogger<DeleteUserModel> logger, 
-           ITweetRepo tweetRepo)
+           ITweetRepo tweetRepo, IFollowingRepo followingRepo)
         {
             signInManager = appSignInManager;
             userManager = appUserManager;
             this.logger = logger;
             this.tweetRepo = tweetRepo;
+            this.followingRepo = followingRepo;
         }
         public void OnGet()
         {
@@ -44,6 +46,7 @@ namespace A2.TwitterClone.UI
                 if (results.Succeeded)
                 {
                     await tweetRepo.DeleteAllTweetsForUser(user.Id);
+                    await followingRepo.DeleteAllFollower(user.Id);
                     await signInManager.SignOutAsync();
 
                     return Redirect("/Register");

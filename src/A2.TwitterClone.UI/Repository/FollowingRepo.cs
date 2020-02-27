@@ -75,10 +75,11 @@ namespace A2.TwitterClone.UI.Repository
                                                following.UserId, userId)
                                                .SingleOrDefaultAsync();
         }
-        public async Task<List<ApplicationUser>> GetAllUsers()
+        public async Task<List<ApplicationUser>> GetAllUsers(string userId)
         {
            return await asyncDocumentSession.Advanced.AsyncDocumentQuery<ApplicationUser>()
-                                               .ToListAsync();
+                                                     .WhereNotEquals(appUser=>appUser.Id, userId)
+                                                     .ToListAsync();
         }
     }
 }

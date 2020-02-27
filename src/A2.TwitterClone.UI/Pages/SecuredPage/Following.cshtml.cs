@@ -23,29 +23,52 @@ namespace A2.TwitterClone.UI
             this.followingRepo = followingRepo;
             this.logger = logger;
         }
-        public async Task<IActionResult> OnGet()
+        public  async Task<IActionResult> OnGet()
+        {
+            await LoadPageContent();
+            return Page();
+        }
+        public async Task<IActionResult> OnPostManageFollow(string userId, string tAction)
         {
             var userIdClaim = User.Claims.FirstOrDefault(claim =>
             claim.Type.CompareTo(nameIdentifer) == 0);
-            var getAllUserTask = followingRepo.GetAllUsers();
-            var getFollowinUserTask = followingRepo.GetFollowingForUser(userIdClaim.Value);
-            Task.WaitAll(getAllUserTask, getFollowinUserTask);
-            var allUsers = getAllUserTask.Result;
-            var following = getFollowinUserTask.Result;
+
+            if (tAction.ToLower()=="follow")
+            {
+                var result = await followingRepo.AddFollower(userIdClaim.Value, userId);
+                if (!result)
+                    ModelState.AddModelError("UnableToAddFollowing", "Follwer not added");
+            }
+            else if (tAction.ToLower()=="unfollow")
+            {
+                var result = await followingRepo.DeleteFollower(userIdClaim.Value, userId);
+                if (!result)
+                    ModelState.AddModelError("UnableToDeleteFollowing", "Follwer not Deleted");
+            }
+            await LoadPageContent();
+            return Page();
+        }
+        private async Task LoadPageContent()
+        {
+            var userIdClaim = User.Claims.FirstOrDefault(claim =>
+            claim.Type.CompareTo(nameIdentifer) == 0);
+            //var getAllUserTask = followingRepo.GetAllUsers();
+            //var getFollowinUserTask = followingRepo.GetFollowingForUser(userIdClaim.Value);
+            //Task.WaitAll(getAllUserTask, getFollowinUserTask);
+            var allUsers = await followingRepo.GetAllUsers(userIdClaim.Value);
+            var following = await followingRepo.GetFollowingForUser(userIdClaim.Value);
+
             foreach (var user in allUsers)
             {
                 FollowingViewModels.Add(new FollowingViewModel
                 {
                     UserName = user.UserName,
                     UserId = user.Id,
-                    Action = following.Followings.Contains(user.Id) ? "UnFollow" : "Following"
-                }) ;
+                    Action = ((following != null) && (following.Followings.Contains(user.Id))) ?
+                            "UnFollow" : "Follow"
+                });
+
             }
-            return Page();
-        }
-        public async Task<IActionResult> OnPostManageFollow(string userId, string tAction)
-        {
-            return Page();
         }
     }
 }

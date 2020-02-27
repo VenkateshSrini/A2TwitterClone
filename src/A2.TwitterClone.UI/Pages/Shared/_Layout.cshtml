@@ -21,39 +21,42 @@
     <div id="body">
         <section class="featured">
             <div class="content-wrapper">
+                
             </div>
             <div class="float-left">
+                <br />
+                <br/>
+                
+                <ul id="menu" style="align-content:safe center">
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-page="/SecuredPage/Tweet">Tweet</a></li>
+                        <li><a asp-page="/SecuredPage/ModifyUser">Edit Profile Info</a></li>
+                        <li><a asp-page="/SecuredPage/Following">Friends</a></li>
+                        <li><a asp-page="/SecuredPage/Signout">Logout</a></li>
+                        <li><a asp-page="/SecuredPage/DeleteUser">Delete Me</a></li>
+                    }
+                    else
+                    {
+                        <li><a asp-page="/Register">Register</a></li>
+                        <li><a asp-page="/Account/Login">Login</a></li>
+                    }
+                </ul>
             </div>
         </section>
         <section class="content-wrapper main-content clear-fix">
-            <ul id="menu">
+        
 
-
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <li><a asp-page="/SecuredPage/Tweet">Tweet</a></li>
-                    <li><a asp-page="/SecuredPage/ModifyUser">Edit Profile Info</a></li>
-                    <li><a asp-page="/SecuredPage/Tweet">Friends</a></li>
-                    <li><a asp-page="/SecuredPage/Signout">Logout</a></li>
-                    <li><a asp-page="/SecuredPage/DeleteUser">Delete Me</a></li>
-                }
-                else
-                {
-                    <li><a asp-page="/Register">Register</a></li>
-                    <li><a asp-page="/Account/Login">Login</a></li>
-                }
-            </ul>
-            @RenderBody()
         </section>
+
     </div>
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - A2.TwitterClone.UI - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
-    </footer>
+    @RenderBody()
+
     @RenderSection("Scripts", required: false)
     <script src="~/bundle.js"></script>
-   
+
 
 </body>
 </html>
