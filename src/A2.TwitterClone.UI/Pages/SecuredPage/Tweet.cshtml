@@ -7,10 +7,10 @@
 <label class="content-header">Tweet</label><br />
 
 <div style="align-items:center">
-    <a class="link-button" style="margin-left:300px;" asp-page="./AddTweet">Add Tweet</a></div>
+    <a class="link-button" style="margin-left:300px;text-decoration: none; " asp-page="./AddTweet">Add Tweet</a></div>
 <br />
 <br />
-<table style="width:70%;">
+<table style="width: 70%;">
     @foreach (var tweet in Model.TweetsByUser)
     {
     <tr width="90%">
@@ -18,11 +18,11 @@
             @tweet.Squeeks
         </td>
         <td width="1%">
-            <a class="link-button"  asp-page="./EditTweet" asp-route-tweetId="@tweet.Id">Edit</a>
+            <a class="link-button"  style = "text-decoration: none; " asp-page="./EditTweet" asp-route-tweetId="@tweet.Id">Edit</a>
       
         </td>
         <td width="1%">
-            <a class="link-button" asp-page="./DeleteTweet" asp-route-tweetId="@tweet.Id">Delete</a>
+            <a class="link-button" style="text-decoration: none; " asp-page="./DeleteTweet" asp-route-tweetId="@tweet.Id">Delete</a>
             <br />
         </td>
     </tr>

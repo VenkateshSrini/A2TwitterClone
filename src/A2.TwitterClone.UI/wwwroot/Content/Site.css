@@ -41,10 +41,13 @@ a:hover {
     background-color: #c7d1d6;
 }
 .link-button {
-    background-color: #7fb3c7;
-    color: white;
     padding: 7px;
     border-radius: 5px;
+    background-image: url('images/blue_button.png');
+    background-repeat-y: no-repeat;
+    background-size: auto;
+    background-repeat-x: no-repeat;
+    background-position: center;
 }
 
 header, footer, hgroup,
